@@ -1,0 +1,12 @@
+#include <stdio.h>
+void increase(int *x)
+{
+    (*x)++ ;
+}
+int main()
+{
+    int a = 5;
+    increase(&a);
+    printf("Value = %d", a);
+    return 0;
+}
