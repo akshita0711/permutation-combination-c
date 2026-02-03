@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+void menu(int *ch)
+{
+    printf("\n1.Input 2.Sum 3.Avg 4.Min 5.Max 6.Exit\n");
+    scanf("%d", ch);
+}
+void input(int a[], int *n)
+{
+    printf("Enter size: ");
+    scanf("%d", n);
+    for(int i=0;i<*n;i++)
+        scanf("%d",&a[i]);
+}
+int sum_array(int a[], int n)
+{
+    int s=0;
+    for(int i=0;i<n;i++) s+=a[i];
+    return s;
+}
+float avg_array(int a[], int n)
+{
+    return (float)sum_array(a,n)/n;
+}
+int min_array(int a[], int n)
+{
+    int m=a[0];
+    for(int i=1;i<n;i++) if(a[i]<m) m=a[i];
+    return m;
+}
+
+int max_array(int a[], int n)
+{
+    int m=a[0];
+    for(int i=1;i<n;i++) if(a[i]>m) m=a[i];
+    return m;
+}
+void display(int a[], int n)
+{
+    for(int i=0;i<n;i++) printf("%d ",a[i]);
+}
+int main()
+{
+    int data[100], ch, n=0;
+
+    while(1)
+    {
+        menu(&ch);
+        switch(ch)
+        {
+        case 1: input(data,&n); break;
+        case 2: display(data,n);
+                printf("\nSum=%d",sum_array(data,n)); break;
+        case 3: display(data,n);
+                printf("\nAvg=%.2f",avg_array(data,n)); break;
+        case 4: printf("Min=%d",min_array(data,n)); break;
+        case 5: printf("Max=%d",max_array(data,n)); break;
+        case 6: exit(0);
+        default: printf("Invalid");
+        }
+    }
+}
