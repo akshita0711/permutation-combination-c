@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+int freq(char str[], char ch)
+{
+int c = 0;
+for(int i=0; str[i]; i++)
+if(str[i] == ch) c++;
+return c;
+}
+int wordCount(char str[])
+{
+int c = 1;
+for(int i=0; str[i]; i++)
+if(str[i] == ' ') c++;
+return c;
+}
+int main()
+{
+char str[100];
+gets(str);
+printf("Words = %d\n", wordCount(str));
+ for(char ch='a'; ch<='z'; ch++)
+if(freq(str,ch) > 0)
+printf("%c : %d\n", ch, freq(str,ch));
+    return 0;
+}
