@@ -9,7 +9,6 @@ printf("%c. ", name[0]);
 if(name[i] == ' ' && name[i+1] != '\0')
  printf("%c. ", name[i+1]);
 }
-// print last name
 for(i = strlen(name)-1; i >= 0 && name[i] != ' '; i--);
 printf("%s", &name[i+1]);
 }
